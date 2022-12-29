@@ -22,14 +22,17 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
               <ul class="navbar-nav me-auto mb-0 mb-md-0">
-                <nav class="nav nav-masthead justify-content-center float-md-end">
-
-                    <a class="nav-link fw-bold py-2 px-2 active" aria-current="page" href="/seeall">See All</a>
-                    <a class="nav-link fw-bold py-2 px-2 active" aria-current="page" href="/delete">Delete</a>
+                <li class="nav-item">
+                  <a class="nav-link fw-bold py-2 px-2 active" aria-current="page" href="/seeall">See All</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link fw-bold py-2 px-2 active" aria-current="page" href="/delete">Delete</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link fw-bold py-2 px-2 active" aria-current="page" href="/insert">Add</a>
+                <li class="nav-item">
                     <a class="nav-link fw-bold py-2 px-2 active" aria-current="page" href="/update">Update</a>
-
-                </nav>
+                </li>
               </ul>
               <form class="d-flex" role="search" action="/search" method="post">
                 <input class="form-control me-2" name="search" id="search" type="text" placeholder="Any Parameter:" aria-label="Search" required autocomplete="off">
