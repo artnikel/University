@@ -12,9 +12,6 @@ import (
 	"github.com/joho/godotenv"
 )
 
-// const address = "root:root@tcp(127.0.0.1:3306)/university"
-//const address = "sql7586935:Wjah79WCjf@tcp(sql7.freesqldatabase.com:3306)/sql7586935"
-
 type Uni interface {
 	Insert_db()
 	Select_db()
@@ -33,7 +30,6 @@ type Student struct {
 
 func goDotEnvVariable(key string) string {
 
-	// load .env file
 	err := godotenv.Load(".env")
 
 	if err != nil {
