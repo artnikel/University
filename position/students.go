@@ -3,15 +3,17 @@ package position
 import (
 	"database/sql"
 	"fmt"
+	"log"
 	"net/http"
+	"os"
 	"strconv"
 
 	_ "github.com/go-sql-driver/mysql"
+	"github.com/joho/godotenv"
 )
 
-//const address = "root:root@tcp(127.0.0.1:3306)/university"
-//const address = "artyommysql:1029qwermysql@tcp(db4free.net:3306)/universitystud"
-const address = "sql7586935:Wjah79WCjf@tcp(sql7.freesqldatabase.com:3306)/sql7586935"
+// const address = "root:root@tcp(127.0.0.1:3306)/university"
+//const address = "sql7586935:Wjah79WCjf@tcp(sql7.freesqldatabase.com:3306)/sql7586935"
 
 type Uni interface {
 	Insert_db()
@@ -28,6 +30,20 @@ type Student struct {
 	Course  int
 	AvgMark float64
 }
+
+func goDotEnvVariable(key string) string {
+
+	// load .env file
+	err := godotenv.Load(".env")
+
+	if err != nil {
+		log.Fatalf("Error loading .env file")
+	}
+
+	return os.Getenv(key)
+}
+
+var address = goDotEnvVariable("DB_ADDRESS")
 
 var Lists = []Student{}
 
