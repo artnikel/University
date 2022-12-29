@@ -1,0 +1,16 @@
+{{define "insert"}}
+{{template "header"}}   
+      <main role="main" class="inner cover">
+        <br>
+        <h1 class="cover-heading">Addition new student</h1>
+        <br>
+        <form action="/save_adding" method="post">
+            <input type="text" name="surname" id="surname" placeholder="Surname:" class="form-control" required autocomplete="off" pattern="^[a-zA-Z]+$"><br>
+            <input type="text" name="name" id="name" placeholder="Name:" class="form-control" required autocomplete="off" pattern="^[a-zA-Z]+$"><br>
+            <input type="number" min="1" max="5" step="1" name="course" id="course" placeholder="Course:" class="form-control" required autocomplete="off"><br>
+            <input type="number" min="1" max="10" step="0.1" name="avgmark" id="avgmark" placeholder="Average Mark:" class="form-control" required autocomplete="off"><br>
+            <button class="btn btn-primary" type="submit">Add</button>
+        </form>
+      </main>
+{{template "footer"}}
+{{end}}

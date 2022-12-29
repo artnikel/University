@@ -1,0 +1,20 @@
+{{define "search"}}
+{{template "header"}}   
+      <main role="main" class="inner cover">
+        <br>
+        <h1 class="cover-heading">Search Match</h1>
+            <table class="jewel" width="100%" cellspacing="0" cellpadding="4">
+                <tr>
+                 <th>ID</th><th>Name</th><th>Surname</th><th>Course</th><th>Average Mark</th>
+                </tr>
+                {{range . }}
+                <tr class="odd"></tr>
+                   <td>{{.Id}}</td><td>{{.Name}}</td><td>{{.Surname}}</td><td>{{.Course}}</td><td>{{.AvgMark}}</td><br>
+                </tr>  
+                    {{else}}
+                    <p class="lead">No Matches</p>
+                    {{end}}          
+            </table>
+      </main>
+{{template "footer"}}
+{{end}}

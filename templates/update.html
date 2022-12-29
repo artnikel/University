@@ -1,0 +1,37 @@
+{{define "update"}}
+{{template "header"}}  
+<main role="main" class="inner cover">
+    <br>
+    <h1 class="cover-heading">All Students</h1>
+        <table class="jewel" width="100%" cellspacing="0" cellpadding="4">
+            <tr>
+             <th>ID</th><th>Name</th><th>Surname</th><th>Course</th><th>Average Mark</th>
+            </tr>
+            {{range . }}
+            <tr class="odd"></tr>
+                <td>{{.Id}}</td><td>{{.Name}}</td><td>{{.Surname}}</td><td>{{.Course}}</td><td>{{.AvgMark}}</td><br>
+            </tr>  
+                {{else}}
+                <p class="lead">The list is empty</p>
+                {{end}}          
+        </table>
+        <br>
+        <br>
+    <form action="/save_updating" method="post">
+        <label for="id"><strong>Please input ID of Student:</strong></label>
+        <input type="number" min="1"  step="1" name="id" id="id" placeholder="ID:" class="form-control" required autocomplete="off"><br><br>
+        <label for="this"><strong>Please choose the Parameter that you want to update: </strong></label>
+        <select class="form-control form-control-lg" id="this" name="this">
+            <option>Surname</option>
+            <option>Name</option>
+            <option>Course</option>
+            <option>AvgMark</option>
+          </select>
+        <br><br>
+        <label for="new"><strong>Input new Information of this Parameter:</strong></label>
+        <input type="text" name="new" id="new" placeholder="New:" class="form-control" required autocomplete="off"><br>
+        <button class="btn btn-primary" type="submit">Confirm</button>
+    </form>
+</main>
+  {{template "footer"}}
+{{end}}

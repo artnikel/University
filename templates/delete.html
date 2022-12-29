@@ -1,0 +1,36 @@
+{{define "delete"}}
+{{template "header"}}   
+<main role="main" class="inner cover">
+        <br>
+        <h1 class="cover-heading">Deleting student</h1>
+        <form action="/save_deleting" method="post">
+            <br>
+            <input type="number" min="1" step="1" name="id" id="id" placeholder="ID:" class="form-control" required autocomplete="off"><br>
+            <button class="btn btn-primary" type="submit">Delete</button>
+            <br>
+        </form>
+        <div id="example_1" style="border:1px solid black; display:none;">
+            <main role="main" class="inner cover">
+                <br>
+                <h1 class="cover-heading">All Students</h1>
+                    <table class="jewel" width="100%" cellspacing="0" cellpadding="4">
+                        <tr>
+                         <th>ID</th><th>Name</th><th>Surname</th><th>Course</th><th>Average Mark</th>
+                        </tr>
+                        {{range . }}
+                        <tr class="odd"></tr>
+                            <td>{{.Id}}</td><td>{{.Name}}</td><td>{{.Surname}}</td><td>{{.Course}}</td><td>{{.AvgMark}}</td><br>
+                        </tr>  
+                            {{else}}
+                            <p class="lead">The list is empty</p>
+                            {{end}}          
+                    </table>
+              </main>
+        </div>
+
+</main>
+<br>
+<br>
+<button onclick="(document.getElementById('example_1').style.display='block')" class="btn btn-warning"><strong>Show full List of Students</strong></button>
+{{template "footer"}}
+{{end}}
